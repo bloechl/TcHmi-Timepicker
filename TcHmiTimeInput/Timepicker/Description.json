@@ -1,0 +1,145 @@
+{
+    "$schema": "../.hmiframework/Schema/ControlDescription.Schema.json",
+    "apiVersion": 1,
+    "name": "Timepicker",
+    "namespace": "TcHmi.Controls.TcHmiTimeInput",
+    "displayName": "Timepicker",
+    "version": {
+        "full": "1.0.0.0",
+        "major": 1,
+        "minor": 0,
+        "revision": 0,
+        "build": 0
+    },
+    "visible": true,
+    "themeable": "Standard",
+    "base": "TcHmi.Controls.Beckhoff.TcHmiInput",
+    "description": "An Input to enter a Time-Value.",
+    "properties": {
+        "containerControl": false,
+        "geometry": {
+            "width": 50,
+            "height": 27
+        }
+    },
+    "icons": [
+        {
+            "name": "Icons/16x16.png",
+            "width": 16,
+            "height": 16
+        }
+    ],
+    "template": "Template.html",
+    "dependencyFiles": [
+        {
+            "name": "Timepicker.js",
+            "type": "JavaScript",
+            "description": "Contains all the main logic."
+        },
+        {
+            "name": "Style.css",
+            "type": "Stylesheet",
+            "description": "Theme independent style"
+        }
+    ],
+    "themes": {
+        "Base": {
+            "resources": [
+                {
+                    "name": "Themes/Base/Style.css",
+                    "type": "Stylesheet",
+                    "description": "Theme dependent style"
+                }
+            ]
+        },
+        "Base-Dark": {
+            "resources": [
+                {
+                    "name": "Themes/Base-Dark/Style.css",
+                    "type": "Stylesheet",
+                    "description": "Theme dependent style"
+                }
+            ]
+        }
+    },
+    "attributes": [
+        {
+            "name": "data-tchmi-time",
+            "propertyName": "Time",
+            "propertySetterName": "setTime",
+            "propertyGetterName": "getTime",
+            "displayName": "Time",
+            "visible": true,
+            "themeable": "Standard",
+            "displayPriority": 10,
+            "type": "tchmi:general#/definitions/TIME_OF_DAY",
+            "category": "Time",
+            "description": "Default time of the control",
+            "readOnly": false,
+            "bindable": true,
+            "defaultBindingMode": "TwoWay",
+            "heritable": true,
+            "defaultValue": "PT0H",
+            "defaultValueInternal": "PT0H"
+        },
+        {
+            "name": "data-tchmi-system-keyboard-input-mode",
+            "propertyName": "SystemKeyboardInputMode",
+            "propertySetterName": "setSystemKeyboardInputMode",
+            "propertyGetterName": "getSystemKeyboardInputMode",
+            "displayName": "SystemKeyboardInputMode",
+            "visible": false,
+            "type": "tchmi:framework#/definitions/Inputmode",
+            "readOnly": false,
+            "bindable": false,
+            "heritable": false,
+            "defaultValue": "none",
+            "defaultValueInternal": "none"
+        },
+        {
+            "name": "data-tchmi-text",
+            "propertyName": "Text",
+            "propertySetterName": "setText",
+            "propertyGetterName": "getText",
+            "displayName": "Text",
+            "visible": false,
+            "type": "tchmi:general#/definitions/String"
+        },
+        {
+            "name": "data-tchmi-auto-select-text",
+            "propertyName": "AutoSelectText",
+            "propertySetterName": "setAutoSelectText",
+            "propertyGetterName": "getAutoSelectText",
+            "displayName": "AutoSelectText",
+            "visible": false,
+            "type": "tchmi:general#/definitions/Boolean"
+        }
+    ],
+    "attributeCategories": [],
+    "functions": [],
+    "events": [
+        {
+            "name": ".onTimeChanged",
+            "displayName": ".onTimeChanged",
+            "visible": true,
+            "displayPriority": 30,
+            "category": "Control",
+            "description": "This event fires when the time has changed.",
+            "heritable": true,
+            "allowsPreventDefault": false
+        },
+        {
+            "name": ".onTextChanged",
+            "displayName": ".onTextChanged",
+            "visible": false,
+            "category": "Control",
+            "heritable": false,
+            "allowsPreventDefault": false
+        }
+    ],
+    "dataTypes": [
+        {
+            "schema": "Schema/Types.Schema.json"
+        }
+    ]
+}
